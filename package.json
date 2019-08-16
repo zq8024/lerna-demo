@@ -2,16 +2,11 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "start": "lerna bootstrap",
-    "dev": "grunt less:theme && webpack-dev-server --open --config webpack.config.js --env.preview",
-    "preview": "grunt build:theme && webpack --config webpack.config.js --env.prod --env.preview",
-    "build": "grunt build:theme && webpack --config webpack.config.js --env.prod",
-    "build:theme": "grunt build:theme",
-    "cfg": "nodemon --verbose --watch webpack.config.js node_modules/webpack-dev-server/bin/webpack-dev-server.js -- --open --config webpack.config.js --env.preview"
-  },
-  "dependencies": {
-    "core-js": "^2.6.1",
-    "tslib": "^1.9.3"
+    "start": "npm install && lerna bootstrap",
+    "dev": "lerna run dev --parallel",
+    "preview": "lerna run preview",
+    "build": "lerna run dev",
+    "cfg": "lerna run cfg"
   },
   "devDependencies": {
     "lerna": "^3.16.4"
