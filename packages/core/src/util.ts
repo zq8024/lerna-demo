@@ -17,7 +17,7 @@ export class Person {
     }
 
     show() {
-        console.log(`person6: ${this.name}`)
+        console.log(`person7: ${this.name}`)
     }
 }
 
