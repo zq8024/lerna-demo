@@ -1,6 +1,6 @@
 {
   "name": "@agp/h5",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "license": "ISC",
   "main": "src/index.ts",
@@ -11,8 +11,8 @@
     "build": "webpack --config webpack.config.js --env.prod"
   },
   "dependencies": {
-    "@agp/core": "^1.0.4",
-    "@agp/web": "^1.0.4"
+    "@agp/core": "^1.0.5",
+    "@agp/web": "^1.0.5"
   },
   "devDependencies": {
     "@types/jquery": "^3.3.28",

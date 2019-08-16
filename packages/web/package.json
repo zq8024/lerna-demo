@@ -1,6 +1,6 @@
 {
   "name": "@agp/web",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "license": "ISC",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@agp/core": "^1.0.4"
+    "@agp/core": "^1.0.5"
   },
   "gitHead": "dd16c0106621951d36847a0fc8a845516a124211"
 }
