@@ -1,0 +1,14 @@
+{
+  "name": "@agp/web",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@agp/core": "^1.0.0"
+  }
+}

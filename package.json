@@ -1,0 +1,23 @@
+{
+  "name": "root",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "lerna bootstrap",
+    "dev": "grunt less:theme && webpack-dev-server --open --config webpack.config.js --env.preview",
+    "preview": "grunt build:theme && webpack --config webpack.config.js --env.prod --env.preview",
+    "build": "grunt build:theme && webpack --config webpack.config.js --env.prod",
+    "build:theme": "grunt build:theme",
+    "cfg": "nodemon --verbose --watch webpack.config.js node_modules/webpack-dev-server/bin/webpack-dev-server.js -- --open --config webpack.config.js --env.preview"
+  },
+  "dependencies": {
+    "core-js": "^2.6.1",
+    "tslib": "^1.9.3"
+  },
+  "devDependencies": {
+    "lerna": "^3.16.4"
+  }
+}
