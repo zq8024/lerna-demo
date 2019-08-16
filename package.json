@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "npm install && lerna bootstrap",
+    "start": "lerna bootstrap",
     "dev": "lerna run dev --parallel",
     "preview": "lerna run preview",
     "build": "lerna run dev",
