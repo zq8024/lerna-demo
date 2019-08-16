@@ -7,5 +7,6 @@
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc"
-  }
+  },
+  "gitHead": "194ebddebaa746f2eb1ca9be4e6c06f879509a84"
 }
