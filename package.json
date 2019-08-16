@@ -1,14 +1,14 @@
 {
   "name": "root",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "start": "npm install && lerna bootstrap",
     "dev": "lerna run dev --parallel",
     "preview": "lerna run preview",
     "build": "lerna run dev",
     "cfg": "lerna run cfg"
-  },
-  "devDependencies": {
-    "lerna": "^3.16.4"
   }
 }
