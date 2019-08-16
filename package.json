@@ -1,10 +1,6 @@
 {
   "name": "root",
   "private": true,
-  "version": "1.0.0",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "start": "lerna bootstrap",
     "dev": "grunt less:theme && webpack-dev-server --open --config webpack.config.js --env.preview",

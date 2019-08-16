@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "@agp/core": "^1.0.5",
-    "@agp/web": "^1.0.5"
+    "@agp/web": "^1.0.5",
+    "tslib": "^1.10.0"
   },
   "devDependencies": {
     "@types/jquery": "^3.3.28",
