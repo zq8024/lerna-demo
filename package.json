@@ -9,6 +9,7 @@
     "dev": "lerna run dev --parallel",
     "preview": "lerna run preview",
     "build": "lerna run build",
-    "cfg": "lerna run cfg"
+    "cfg": "lerna run cfg",
+    "clean": "lerna clean"
   }
 }
