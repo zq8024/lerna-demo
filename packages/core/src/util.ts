@@ -33,6 +33,9 @@ export class Student extends Person {
     }
 
     show() {
+        if(process.env.preview){
+            console.log(`it is preview`)
+        }
         console.log(`student5: ${this.name}`)
     }
 }

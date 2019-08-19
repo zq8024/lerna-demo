@@ -9,18 +9,24 @@ module.exports = function (env, argv) {
     const baseCfg = base.baseCfgFun(env, argv);
     const cfg = merge({}, baseCfg, {
         entry: {
-            "agp.core": './src/index.ts'
+            "agp.web": './src/index.ts'
         },
 
         output: {
-            library: '@agp/core',
+            library: '@agp/web',
             libraryTarget: "umd",
         },
 
+        externals: {
+            '@agp/core': !(env.preview || false),
+        },
+
         plugins: [
-            new CleanWebpackPlugin([base.outputPath + 'agp.core.js'])
+            new CleanWebpackPlugin([base.outputPath + 'agp.web.js']),
         ]
     })
+
     //console.log(cfg);
     return cfg;
+
 }

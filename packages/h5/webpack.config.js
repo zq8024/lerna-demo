@@ -7,31 +7,47 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const merge = require('webpack-merge');
 
-/*** env arg:  
- * prod  
- * preview  
- * platform: web mobile[ android ios wechat ]
- * appid
- */
+const base = require('../base.config');
 
-module.exports = [function (env, argv) {
-    if (env.platform == 'android' || env.platform == 'ios' || env.platform == 'wechat') env.mobile = true;
-    env.appid = env.appid || 'flowtest2018';
-    return {
-        mode: env.prod ? 'production' : 'development',
-        devtool: env.prod ? 'source-map' : 'source-map',
+module.exports = function (env, argv) {
+    const baseCfg = base.baseCfgFun(env, argv);
+
+    const cfg = merge({}, baseCfg, {
         entry: {
             "agp.h5": './src/index.ts'
         },
 
         output: {
-            path: path.join(__dirname, 'dist/assets/js'),
-            filename: '[name].js?[hash]',
-            publicPath: 'assets/js/',
             library: '@agp/h5',
             libraryTarget: "umd",
-            
         },
+
+        externals: {
+            //$: 'jquery',
+            'jquery': 'jQuery',
+            /* '@agp/core': !(env.preview || false),
+            '@agp/web': !(env.preview || false), */
+        },
+
+        plugins: [
+            new CleanWebpackPlugin([base.outputPath + 'agp.h5.js']),
+
+            new HtmlWebpackPlugin({
+                title: 'demo',
+                filename: '../../index.html',
+                template: './index.html',
+                templateParameters: {
+                    timetick: new Date().valueOf(),
+                    appid: env.appid,
+                    min: env.prod ? '.min' : '',
+                    prod: env.prod
+                },
+                alwaysWriteToDisk: true,
+                excludeChunks: ['debuger']
+            }),
+
+            new HtmlWebpackHarddiskPlugin(),
+        ],
 
         devServer: {
             contentBase: 'dist',
@@ -58,13 +74,6 @@ module.exports = [function (env, argv) {
         },
 
         optimization: {
-            minimize: false,
-            /*namedChunks: true,
-            namedModules: true */
-            /* runtimeChunk: {
-                name: 'runtime'
-            }, */
-
             splitChunks: {
                 // include all types of chunks
                 minSize: 1,
@@ -73,66 +82,12 @@ module.exports = [function (env, argv) {
                         test: /[\\/]node_modules[\\/]/,
                         name: 'vendors',
                         chunks: 'all'
-                    },
-                    core: {
-                        test: /\@agp\/core/,
-                        name: 'agp.core',
-                        chunks: 'all'
                     }
-
                 }
             }
-        },
+        }
 
-        resolve: {
-            // Add `.ts` and `.tsx` as a resolvable extension.
-            extensions: [".ts", ".tsx", ".js", ".json", ".jsx", ".css"],
-            /* alias: {
-                'tslib$': 'tslib/tslib.es6.js'
-            } */
-            
-        },
-        externals: {
-            //$: 'jquery',
-            'jquery': 'jQuery',
-            //'@agp/core': true
-        },
-        module: {
-            rules: [
-                {
-                    test: /\.ts$/,
-                    loader: 'ts-loader'
-                }
-            ]
-        },
-        plugins: [
-            new webpack.DefinePlugin({
-                'process.env.prod': JSON.stringify(env.prod || false),
-                'process.env.preview': JSON.stringify(env.preview || false),
-                'process.env.platform': JSON.stringify(env.platform || 'web')
-            }),
-
-            new CleanWebpackPlugin(['dist/assets/js']),
-
-            new webpack.ProvidePlugin({
-                tslib: 'tslib'
-            }),
-
-            new HtmlWebpackPlugin({
-                title: 'demo',
-                filename: '../../index.html',
-                template: './index.html',
-                templateParameters: {
-                    timetick: new Date().valueOf(),
-                    appid: env.appid,
-                    min: env.prod ? '.min' : ''
-                },
-                alwaysWriteToDisk: true,
-                excludeChunks: ['debuger']
-            }),
-
-            new HtmlWebpackHarddiskPlugin(),
-        ]
-    }
+    })
+    //console.log(cfg);
+    return cfg;
 }
-]
