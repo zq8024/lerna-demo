@@ -8,7 +8,7 @@
     "start": "lerna bootstrap",
     "dev": "lerna run dev --parallel",
     "preview": "lerna run preview",
-    "build": "lerna run dev",
+    "build": "lerna run build",
     "cfg": "lerna run cfg"
   }
 }

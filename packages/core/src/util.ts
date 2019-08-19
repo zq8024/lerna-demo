@@ -26,3 +26,13 @@ export const enum Status {
     fail,
     login
 }
+
+export class Student extends Person {
+    constructor(public name: string) {
+        super(name);
+    }
+
+    show() {
+        console.log(`student: ${this.name}`)
+    }
+}
