@@ -1,5 +1,5 @@
 import { sayHello, getStatusName, Teacher } from "@agp/web";
-import { Status } from '@agp/core';
+import { Status, Student } from '@agp/core';
 import $ from 'jquery';
 
 sayHello();
@@ -10,6 +10,9 @@ console.log(s);
 let te = new Teacher('jim');
 te.show();
 te.book();
+
+let stu = new Student('tom');
+stu.show();
 
 $('body').append($('<div>test</div>'))
 

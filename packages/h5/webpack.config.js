@@ -90,7 +90,7 @@ module.exports = [function (env, argv) {
             /* alias: {
                 'tslib$': 'tslib/tslib.es6.js'
             } */
-            //symlinks: true
+            
         },
         externals: {
             //$: 'jquery',

@@ -8,6 +8,6 @@ export class Teacher extends Person {
     }
 
     book() {
-        console.log('it is book');
+        console.log('it is book22');
     }
 }

@@ -33,6 +33,6 @@ export class Student extends Person {
     }
 
     show() {
-        console.log(`student: ${this.name}`)
+        console.log(`student4: ${this.name}`)
     }
 }

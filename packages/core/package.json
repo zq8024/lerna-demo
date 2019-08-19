@@ -4,10 +4,8 @@
   "description": "",
   "license": "ISC",
   "main": "src/index.ts",
-  "module":"dist/es6/index.js",
   "scripts": {
     "start": "npm run dev",
-    "dev": "tsc -w",
     "preview": "webpack --config webpack.config.js --env.prod --env.preview",
     "build": "webpack --config webpack.config.js --env.prod"
   },
