@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 //const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const merge = require('webpack-merge');
 
 /*** env arg:  
  * prod  
@@ -20,15 +21,16 @@ module.exports = [function (env, argv) {
         mode: env.prod ? 'production' : 'development',
         devtool: env.prod ? 'source-map' : 'source-map',
         entry: {
-            "main": './src/index.ts'
+            "agp.h5": './src/index.ts'
         },
 
         output: {
             path: path.join(__dirname, 'dist/assets/js'),
             filename: '[name].js?[hash]',
             publicPath: 'assets/js/',
-            library: 'a2',
-            libraryTarget: "umd"
+            library: '@agp/h5',
+            libraryTarget: "umd",
+            
         },
 
         devServer: {
@@ -59,6 +61,9 @@ module.exports = [function (env, argv) {
             minimize: false,
             /*namedChunks: true,
             namedModules: true */
+            /* runtimeChunk: {
+                name: 'runtime'
+            }, */
 
             splitChunks: {
                 // include all types of chunks
@@ -82,13 +87,15 @@ module.exports = [function (env, argv) {
         resolve: {
             // Add `.ts` and `.tsx` as a resolvable extension.
             extensions: [".ts", ".tsx", ".js", ".json", ".jsx", ".css"],
-            alias: {
+            /* alias: {
                 'tslib$': 'tslib/tslib.es6.js'
-            }
+            } */
+            //symlinks: true
         },
         externals: {
-            jquery: 'jQuery',
-            $: 'jQuery'
+            //$: 'jquery',
+            'jquery': 'jQuery',
+            //'@agp/core': true
         },
         module: {
             rules: [
