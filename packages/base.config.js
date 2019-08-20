@@ -24,14 +24,15 @@ module.exports.baseCfgFun = function (env, argv) {
             path: outputPath,
             filename: '[name].js?[hash]',
             publicPath: 'assets/js/',
+            libraryTarget: "umd",
         },
 
 
         optimization: {
             minimize: false,
             /*namedChunks: true,
-            namedModules: true */
-            /* runtimeChunk: {
+            namedModules: true,
+            runtimeChunk: {
                 name: 'runtime'
             }, */
         },
@@ -44,7 +45,10 @@ module.exports.baseCfgFun = function (env, argv) {
             } */
         },
         externals: {
-
+            //$: 'jquery',
+            'jquery': 'jQuery',
+            '@agp/core': !(env.preview || false),
+            '@agp/web': !(env.preview || false),
         },
         module: {
             rules: [

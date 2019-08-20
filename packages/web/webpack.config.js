@@ -14,11 +14,10 @@ module.exports = function (env, argv) {
 
         output: {
             library: '@agp/web',
-            libraryTarget: "umd",
         },
 
         externals: {
-            '@agp/core': !(env.preview || false),
+            
         },
 
         plugins: [

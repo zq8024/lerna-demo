@@ -19,14 +19,10 @@ module.exports = function (env, argv) {
 
         output: {
             library: '@agp/h5',
-            libraryTarget: "umd",
         },
 
         externals: {
-            //$: 'jquery',
-            'jquery': 'jQuery',
-            /* '@agp/core': !(env.preview || false),
-            '@agp/web': !(env.preview || false), */
+            
         },
 
         plugins: [

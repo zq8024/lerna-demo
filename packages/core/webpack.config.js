@@ -14,7 +14,6 @@ module.exports = function (env, argv) {
 
         output: {
             library: '@agp/core',
-            libraryTarget: "umd",
         },
 
         plugins: [
