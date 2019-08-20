@@ -6,7 +6,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "npm run dev",
-    "dev": "webpack-dev-server --open --config webpack.config.js --env.preview",
+    "dev": "webpack-dev-server --open --watch-content-base --config webpack.config.js --env.preview",
     "preview": "webpack --config webpack.config.js --env.prod --env.preview",
     "build": "webpack --config webpack.config.js --env.prod"
   },

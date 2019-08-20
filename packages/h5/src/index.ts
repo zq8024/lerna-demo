@@ -14,7 +14,7 @@ te.book();
 let stu = new Student('tom');
 stu.show();
 
-$('body').append($('<div>test</div>'))
+$('body').append($('<div><h3>test3</h3></div>'))
 
 
 

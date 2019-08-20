@@ -47,8 +47,8 @@ module.exports.baseCfgFun = function (env, argv) {
         externals: {
             //$: 'jquery',
             'jquery': 'jQuery',
-            '@agp/core': !(env.preview || false),
-            '@agp/web': !(env.preview || false),
+            '@agp/core': true,
+            '@agp/web': true,
         },
         module: {
             rules: [
