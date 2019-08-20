@@ -10,6 +10,7 @@
     "preview": "lerna run preview",
     "build": "lerna run build",
     "cfg": "lerna run cfg",
-    "clean": "lerna clean"
+    "clean": "lerna clean",
+    "publish": "lerna publish --registry http://192.168.1.42:8081/repository/npmhangar/"
   }
 }
