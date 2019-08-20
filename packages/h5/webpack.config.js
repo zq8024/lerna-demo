@@ -26,7 +26,7 @@ module.exports = function (env, argv) {
         },
 
         plugins: [
-            new CleanWebpackPlugin([base.outputPath + 'agp.h5.js']),
+            new CleanWebpackPlugin([base.outputPath]),
 
             new HtmlWebpackPlugin({
                 title: 'demo',
